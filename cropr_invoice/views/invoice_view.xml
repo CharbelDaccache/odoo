@@ -1,0 +1,24 @@
+<openerp>
+    <data>
+        <template id="assets_backend" name="web_view_custom_widget assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/cropr_invoice/static/src/js/custom-widget.js"/>
+            </xpath>
+        </template>
+
+        <record id="view_invoice_form_inherited_cropr_invoice_token" model="ir.ui.view">
+            <field name="name">account.invoice.cropr.invoice.token</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_form"/>
+            <field name="arch" type="xml">
+                <field name="user_id" position="before">
+                    <field name="cropr_invoice_token" required="0" widget="cropr-invoice-token-url"/>
+                </field>
+                <field name="user_id" position="before">
+                    <field name="cropr_order_number" required="0" widget="cropr-invoice-order-number-url"/>
+                </field>
+            </field>
+        </record>
+
+     </data>
+</openerp>
