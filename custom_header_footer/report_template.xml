@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    	<template id="custom_footer" name="Custom Footer">
+            <div class="footer" style="margin-left:-15px;margin-right:-15px;">
+                <img t-if="company.footer_address_image" t-att-src="'data:image/png;base64,%s' % company.footer_address_image" style="max-height: 235px;width:100%;"/>
+            </div>
+        </template>
+        <template id="custom_header" name="Custom Header">
+            <div class="header" style="margin-left:-15px;margin-right:-15px;">
+                <img t-if="company.header_image" t-att-src="'data:image/png;base64,%s' % company.header_image" style="max-height:150px;width:100%;"/>
+            </div>
+        </template>
+
+        <template id="report.external_layout">
+    	<!-- Multicompany -->
+		    <t t-if="not o and doc">
+		        <t t-set="o" t-value="doc"/>
+		    </t>
+		    <t t-if="o and 'company_id' in o">
+		        <t t-set="company" t-value="o.company_id"></t>
+		    </t>
+		    <t t-if="not o or not 'company_id' in o">
+		        <t t-set="company" t-value="res_company"></t>
+		    </t>
+		    <t t-if="not company.for_all_report">
+			    <t t-call="report.external_layout_header" />
+			    <t t-raw="0" />
+			    <t t-call="report.external_layout_footer" />
+			</t>
+			<t t-if="company.for_all_report">
+			    <t t-call="custom_header_footer.custom_header" />
+			    <t t-raw="0" />
+			    <t t-call="custom_header_footer.custom_footer" />
+			</t>
+		</template>
+    </data>
+</openerp>
