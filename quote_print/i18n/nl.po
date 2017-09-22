@@ -1,0 +1,58 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * sale
+# 
+# Translators:
+# Martin Trigaux <mat@odoo.com>, 2016
+# Eric Geens <ericgeens@yahoo.com>, 2016
+# Yenthe Van Ginneken <yenthespam@gmail.com>, 2016
+# Volluta <volluta@tutanota.com>, 2016
+# Erwin van der Ploeg <erwin@odooexperts.nl>, 2016
+# Stephan Van Dyck <stephan.vandyck@vanroey.be>, 2016
+# Eric Geens <eric.geens@vitabiz.be>, 2016
+# Cas Vissers <casvissers@brahoo.nl>, 2016
+# wilcobergacker <wilcobergacker@gmail.com>, 2016
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-11-14 15:53+0000\n"
+"PO-Revision-Date: 2016-11-14 15:53+0000\n"
+"Last-Translator: wilcobergacker <wilcobergacker@gmail.com>, 2016\n"
+"Language-Team: Dutch (https://www.transifex.com/odoo/teams/41243/nl/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: nl\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+
+#. module: quote_print
+#: model:ir.ui.view,arch_db:quote_print.so_quotation_content_custom
+msgid "Customer:"
+msgstr "Klant:"
+
+#. module: quote_print
+#: model:ir.ui.view,arch_db:quote_print.so_quotation_content_custom
+msgid "Quotation"
+msgstr "Offerte"
+
+#. module: quote_print
+#: model:ir.ui.view,arch_db:quote_print.so_quotation_content_custom
+msgid "Your Contact:"
+msgstr "Uw contactpersoon:"
+
+#. module: quote_print
+#: model:ir.ui.view,arch_db:quote_print.so_quotation_content_custom
+msgid "Quote Date:"
+msgstr "Offertedatum:"
+
+#. module: quote_print
+#: model:ir.ui.view,arch_db:quote_print.so_quotation_content_custom
+msgid "Expiration Date:"
+msgstr "Vervaldatum:"
+
+#. module: quote_print
+#: model:ir.model.fields,field_description:quote_print.field_sale_order_show_only_total
+msgid "Show Only Total"
+msgstr "Laat alleen totaal zien"

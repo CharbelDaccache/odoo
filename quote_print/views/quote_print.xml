@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="view_order_quote_print_inherited_custom" model="ir.ui.view">
+            <field name="name">sale.order.quote.print.form.inherited</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="website_quote.sale_order_form_quote"/>
+            <field name="arch" type="xml">
+                <xpath expr="//header/button[@name='action_confirm']" position="after">
+                    <button name="get_quote_print_pdf" string="Print Online Quotation" type="object" states="draft,sent,sale" class="btn-primary" groups="base.group_user"/>
+                </xpath>
+
+                <xpath expr="//field[@name='client_order_ref']" position="after">
+                    <field name="website_description_footer" invisible="1"/>
+                    <field name="website_description_footer_below" invisible="1"/>
+                    <field name="cover_image" invisible="1"/>
+                </xpath>
+
+                <xpath expr="//field[@name='payment_term_id']" position="after">
+                    <field name="show_only_total"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_company_form_inherit" model="ir.ui.view">
+            <field name="name">res.company.form.inherit</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="custom_header_footer.view_company_form_custom"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='footer_blank_image']" position="after">
+                    <field name="footer_address_image" filename="file_name_footer_address"/>
+                    <field name="file_name_footer_address" invisible="1"/>
+                    <field name="footerAdrs_first_page_img" filename="file_name_footerAdrsFirstPage"/>
+                    <field name="file_name_footerAdrsFirstPage" invisible="1"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_sale_quote_template_form_inherit">
+            <field name="name">sale.quote.template.form.inherit</field>
+            <field name="model">sale.quote.template</field>
+            <field name="inherit_id" ref="website_quote.view_sale_quote_template_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@id='number_of_days']" position="after">
+                    <label for="cover_image"/>
+                    <div id="cover_image">
+                        <field name="cover_image" filename="file_name_cover" class="oe_inline"/>
+                        <field name="file_name_cover" invisible="1" class="oe_inline"/>
+                    </div>
+                    <label for="report_layout"/>
+                    <div id="report_layout">
+                        <field name="report_layout" class="oe_inline"/>
+                    </div>
+                    <label for="cover_height" groups="base.group_no_one"/>
+                    <div id="cover_height" groups="base.group_no_one">
+                        <field name="cover_height" class="oe_inline"/>
+                    </div>
+                    <label for="IsfooterAdrsIma_first_page"/>
+                    <div id="IsfooterAdrsIma_first_page">
+                        <field name="IsfooterAdrsIma_first_page" class="oe_inline"/>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</openerp>

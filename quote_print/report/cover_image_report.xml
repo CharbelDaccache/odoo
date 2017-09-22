@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <template id="report_quote_cover">
+            <t t-call="report.html_container">
+                <t t-set="o" t-value="docs[0]"/>
+                <t t-foreach="docs" t-as="cover">
+                    <div class="header"/>
+                    <div class="page" style="margin-left:-15px;margin-right:-15px;">
+                        <img t-att-src="'data:image/png;base64,%s' % cover.cover_image" t-att-style="'height:'+str(cover.cover_height or 1031)+'px; width:100%;'"/>
+                    </div>
+                    <div class="footer"/>
+                </t>
+            </t>
+        </template>
+
+    </data>
+</openerp>

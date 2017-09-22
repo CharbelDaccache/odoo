@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+
+    <report id="website_quote.report_web_quote"
+            string="Web Quotation"
+            model="sale.order"
+            report_type="qweb-pdf"
+            file="website_quote.report_quotation"
+            name="website_quote.report_quote"/>
+
+    <report id="report_web_quote_cover"
+            string="Cover Image Report"
+            model="sale.quote.template"
+            report_type="qweb-pdf"
+            file="quote_print.cover_image_report"
+            name="quote_print.report_quote_cover"/>
+
+    <record id="quote_print.report_web_quote_cover" model="ir.actions.report.xml">
+        <field name="paperformat_id" ref="quote_print.quote_print_cover_paperformat"/>
+    </record>
+
+    <record id="website_quote.report_web_quote" model="ir.actions.report.xml">
+        <field name="paperformat_id" ref="quote_print.quote_print_custom_header_paperformat"/>
+    </record>
+
+</openerp>
