@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="account_invoice_form_inherit_export_exact" model="ir.ui.view">
+            <field name="name">account.invoice.form.export_exact</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_form"/>
+                <field name="arch" type="xml">
+                     <button name="invoice_print" position="after">
+                          <button type="object" name="export_exact" string="Export2Exact" class="oe_highlight" attrs="{'invisible':['|', ['state', 'not in', ['open']], ['exact_order_number', '!=', False] ]}"/>
+                     </button>
+                     <field name="date_invoice" position="after">
+                         <field name="exact_invoice_subject" />
+                     </field>
+                     <field name="exact_invoice_subject" position="after">
+                         <field name="exact_order_number" />
+                     </field>
+                     <field name="exact_order_number" position="after">
+                         <field name="exact_invoice_number" />
+                     </field>
+                </field>
+        </record>
+        <record id="base.view_partner_form_new" model="ir.ui.view">
+            <field name="name">res.partner.form_newfield</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <field name="type" position="before">
+                    <field name="dfi_active" string="DFI actief" attrs="{'invisible':['|', ['company_type', 'not in', ['company']] ]}"/>
+                </field>
+            </field>
+        </record>
+        <record id="account_payment_form_inherit_exact_code" model="ir.ui.view">
+            <field name="name">account.payment.term.form_exact_code</field>
+            <field name="model">account.payment.term</field>
+            <field name="inherit_id" ref="account.view_payment_term_form"/>
+            <field name="arch" type="xml">
+                <field name="active" position="after">
+                    <field name="exact_code" string="Exact code"/>
+                </field>
+            </field>
+        </record>
+        <record id="res_companyaccount_payment_form_inherit_exact_division_code" model="ir.ui.view">
+            <field name="name">res.company.form_exact_division_code</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_form"/>
+            <field name="arch" type="xml">
+                <field name="website" position="after">
+                    <field name="exact_division_code" string="Exact division code"/>
+                </field>
+            </field>
+        </record>
+        <record id="account_journal_form_inherit_exact_code" model="ir.ui.view">
+            <field name="name">account.journal.form_exact_code</field>
+            <field name="model">account.journal</field>
+            <field name="inherit_id" ref="account.view_account_journal_form"/>
+            <field name="arch" type="xml">
+                <field name="code" position="after">
+                    <field name="exact_code" string="Exact code"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</openerp>
