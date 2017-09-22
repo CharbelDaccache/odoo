@@ -1,0 +1,29 @@
+<openerp>
+    <data>
+
+        <template id="assets_backend" name="web_view_custom_widget assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/partner_number/static/src/js/custom-widget.js"/>
+            </xpath>
+        </template>
+
+        <record id="view_partner_form_inherited_partner_number" model="ir.ui.view">
+            <field name="name">res.partner.vat.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <field name="ref" position="after">
+                    <field name="partner_num" required="0" widget="custom-url"/>
+                </field>
+            </field>
+        </record>
+
+        <!-- <record id="sequence_partner" model="ir.sequence">
+            <field name="name">Partner Sequence</field>
+            <field name="code">res.partner</field>
+            <field eval="False" name="company_id"/>
+            <field name="padding">0</field>
+        </record> -->
+
+     </data>
+</openerp>
