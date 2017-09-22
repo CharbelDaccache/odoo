@@ -1,0 +1,19 @@
+<openerp>
+    <data>
+        <record id="view_partner_form_inherited" model="ir.ui.view">
+            <field name="name">res.partner.vat.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <group name="purchase" position="after">
+                    <group string="Dealer" name="dealer">
+                        <field name="dealer"/>
+                    </group>
+                </group>
+                <field name="user_id" position="after">
+                    <field name="dealer_id" domain="[('dealer', '=', True)]"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</openerp>
